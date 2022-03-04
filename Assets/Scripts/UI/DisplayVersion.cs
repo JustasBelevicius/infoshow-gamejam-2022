@@ -17,4 +17,5 @@ public class DisplayVersion : MonoBehaviour
         }
         text.text = ConfigLoader.getConfig().version;
     }
+
 }
