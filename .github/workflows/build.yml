@@ -31,9 +31,9 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          buildName: GORF-win64
           targetPlatform: StandaloneWindows64
           buildsPath: Build
+          buildName: GORF-win64
       # Upload Artifact
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
@@ -42,15 +42,12 @@ jobs:
           path: Build
       - name: Log Contents
         run: |
-          ls -xal /
-      - name: Log Contents 1
+          ls -xal Build/StandaloneWindows64
+      - name: Zip Build
         run: |
-          ls -xal Build
-      # - name: Zip Build
-      #   run: |
-      #     pushd Build/GORF-win64
-      #     zip -r GORF-win64.zip .
-      #     popd
+          pushd Build/StandaloneWindows64
+          zip -r GORF-win64.zip .
+          popd
       # Upload Release
       # - name: Upload Release
       #   uses: softprops/action-gh-release@v1
