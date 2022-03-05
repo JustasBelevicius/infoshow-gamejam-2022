@@ -8,7 +8,7 @@ public abstract class Action : ScriptableObject
     private float inputTimeout = .3f;
     private float timer = 0;
 
-    public void OnUpdate(PlayerController controller)
+    public void OnUpdate(PlayerManager controller)
     {
         if (timer > 0)
         {
@@ -22,6 +22,6 @@ public abstract class Action : ScriptableObject
         }
     }
 
-    protected abstract bool CheckInput(PlayerController controller);
-    protected abstract void DoAction(PlayerController controller);
+    protected abstract bool CheckInput(PlayerManager controller);
+    protected abstract void DoAction(PlayerManager controller);
 }

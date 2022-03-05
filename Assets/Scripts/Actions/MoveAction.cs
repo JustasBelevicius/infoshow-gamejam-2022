@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,21 +5,21 @@ using UnityEngine;
 public class MoveAction : Action
 {
 
-    protected override bool CheckInput(PlayerController controller)
+    protected override bool CheckInput(PlayerManager controller)
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         return vertical != 0 || horizontal != 0;
     }
 
-    protected override void DoAction(PlayerController controller)
+    protected override void DoAction(PlayerManager controller)
     {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         if (Mathf.Abs(vertical) > Mathf.Abs(horizontal))
         {
             // Move vertically
-            controller.Move(vertical < 0 ? Direction.UP : Direction.DOWN);
+            controller.Move(vertical < 0 ? Direction.DOWN : Direction.UP);
         } else
         {
             // Move horizontally

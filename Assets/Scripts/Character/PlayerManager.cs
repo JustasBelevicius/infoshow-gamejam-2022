@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
     public List<Action> actions;
+
+    [SerializeField]
+    public PlayerData playerData;
 
     void Update()
     {
@@ -20,19 +23,22 @@ public class PlayerController : MonoBehaviour
         switch(direction)
         {
             case Direction.UP:
-                Debug.Log("Move UP");
+                playerData.y += 1;
                 break;
             case Direction.RIGHT:
-                Debug.Log("Move RIGHT");
+                playerData.x += 1;
                 break;
             case Direction.DOWN:
-                Debug.Log("Move DOWN");
+                playerData.y -= 1;
                 break;
             case Direction.LEFT:
-                Debug.Log("Move LEFT");
+                playerData.x -= 1;
                 break;
         }
     }
 
-
+    public int[] GetCurrentRoomPosition()
+    {
+        return new int[]{ Mathf.RoundToInt(playerData.x / Room.WIDTH), Mathf.RoundToInt(playerData.y / Room.HEIGHT) };
+    }
 }

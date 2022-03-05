@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class RoomManager
+public class RoomLoader
 {
     private const string ROOM_FOLDER = "Rooms";
     private List<Room> _rooms;
-    private static RoomManager _instance;
+    private static RoomLoader _instance;
 
-    public static RoomManager GetInstance()
+    public static RoomLoader GetInstance()
     {
         if (_instance == null)
         {
-            _instance = new RoomManager();
+            _instance = new RoomLoader();
         }
         return _instance;
     }
 
-    private RoomManager()
+    private RoomLoader()
     {
         _rooms = _loadRooms();
     }
