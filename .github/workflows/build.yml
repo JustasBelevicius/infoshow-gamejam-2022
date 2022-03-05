@@ -15,7 +15,7 @@ jobs:
       # Get Current Data
       - name: Get Current Date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M')"
       # Cache
       - uses: actions/cache@v2
         with:
@@ -40,9 +40,14 @@ jobs:
         with:
           name: GORF-win64
           path: Build
+      - name: Zip Build
+        run: |
+          pushd Build/GORF-win64
+          zip -r GORF-win64.zip .
+          popd
       # Upload Release
       - name: Upload Release
         uses: softprops/action-gh-release@v1
         with:
-          files: Build/GORF-win64
+          files: GORF-win64.zip
           name: build-${{ steps.date.outputs.date }}
