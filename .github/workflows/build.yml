@@ -45,9 +45,9 @@ jobs:
           ls -xal Build/StandaloneWindows64
       - name: Zip Build
         run: |
-          pushd Build/StandaloneWindows64
-          zip -r GORF-win64.zip .
-          popd
+          sudo pushd Build/StandaloneWindows64
+          sudo zip -r GORF-win64.zip .
+          sudo popd
       # Upload Release
       # - name: Upload Release
       #   uses: softprops/action-gh-release@v1
