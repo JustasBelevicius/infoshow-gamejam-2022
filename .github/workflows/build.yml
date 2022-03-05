@@ -42,7 +42,10 @@ jobs:
           path: Build
       - name: Log Contents
         run: |
-          ls -xal Build/GORF-win64
+          ls -xal /
+      - name: Log Contents 1
+        run: |
+          ls -xal Build
       # - name: Zip Build
       #   run: |
       #     pushd Build/GORF-win64
