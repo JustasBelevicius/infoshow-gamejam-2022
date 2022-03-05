@@ -51,8 +51,8 @@ jobs:
         run: |
           ls -xal Build/StandaloneWindows64
       # Upload Release
-      # - name: Upload Release
-      #   uses: softprops/action-gh-release@v1
-      #   with:
-      #     files: GORF-win64.zip
-      #     name: build-${{ steps.date.outputs.date }}
+      - name: Upload Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: Build/StandaloneWindows64/GORF-win64.zip
+          name: build-${{ steps.date.outputs.date }}
