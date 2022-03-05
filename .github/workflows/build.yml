@@ -39,13 +39,13 @@ jobs:
           name: StandaloneWindows64
           path: Build
       # Zip Build
-      - name: Zip Build
-        run: |
-          pushd Build/StandaloneWindows64
-          zip -r ../../StandaloneWindows64.zip .
-          popd
+      # - name: Zip Build
+      #   run: |
+      #     pushd Build/StandaloneWindows64
+      #     zip -r ../../StandaloneWindows64.zip .
+      #     popd
       - name: Upload Release
         uses: softprops/action-gh-release@v1
         with:
-          files: StandaloneWindows64.zip
+          files: Build/StandaloneWindows64
           name: build-${{ steps.date.outputs.date }}
