@@ -52,7 +52,7 @@ public class RoomGenerator: MonoBehaviour
         return _map.ContainsKey($"{x}_{y}");
     }
 
-    private Room GetRoom(int x, int y)
+    public Room GetRoom(int x, int y)
     {
         if (!HasRoom(x, y))
             return null;

@@ -7,20 +7,42 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public List<Action> actions;
 
+    private PlayerData playerData = new PlayerData();
+
     [SerializeField]
-    public PlayerData playerData;
+    public RoomGenerator generator;
+
+    [SerializeField]
+    private float inputTimeout = .3f;
+    private float timer = 0;
 
     void Awake()
     {
         playerData.foodLevel = ConfigLoader.getConfig().startingFood;
+        playerData.x = Mathf.CeilToInt(Room.WIDTH / 2) + 1;
+        playerData.y = Mathf.CeilToInt(Room.HEIGHT / 2) + 1;
         transform.position = new Vector3(playerData.x - .5f, playerData.y - .5f, transform.position.z);
     }
 
     void Update()
     {
-        foreach(Action action in actions)
+        if (timer > 0)
         {
-            action.OnUpdate(this);
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            foreach (Action action in actions)
+            {
+                if (timer > 0)
+                {
+                    break;
+                }
+                if (action.OnUpdate(this, generator, playerData))
+                {
+                    timer = inputTimeout;
+                }
+            }
         }
         UpdatePosition();
     }
@@ -30,27 +52,34 @@ public class PlayerManager : MonoBehaviour
         transform.position = new Vector3(playerData.x - .5f, playerData.y - .5f, transform.position.z);
     }
 
-    public void Move(Direction direction)
+    public void Move(Direction direction, int ammount)
     {
+        playerData = GetNextPlayerPosition(direction, ammount);
+    }
+
+    public PlayerData GetNextPlayerPosition(Direction direction, int ammount)
+    {
+        PlayerData player = playerData.Clone();
         switch(direction)
         {
             case Direction.UP:
-                playerData.y += 1;
+                player.y += ammount;
                 break;
             case Direction.RIGHT:
-                playerData.x += 1;
+                player.x += ammount;
                 break;
             case Direction.DOWN:
-                playerData.y -= 1;
+                player.y -= ammount;
                 break;
             case Direction.LEFT:
-                playerData.x -= 1;
+                player.x -= ammount;
                 break;
         }
+        return player;
     }
 
     public int[] GetCurrentRoomPosition()
     {
-        return new int[]{ Mathf.RoundToInt(((playerData.x - .5f) / (float)Room.WIDTH) - .5f), Mathf.RoundToInt(((playerData.y - .5f )/ (float)Room.HEIGHT) - .5f) };
+        return playerData.GetCurrentRoomPosition();
     }
 }

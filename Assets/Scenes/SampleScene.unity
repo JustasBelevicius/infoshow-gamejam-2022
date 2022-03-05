@@ -666,7 +666,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
+    m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -964,7 +964,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2113570155}
   - component: {fileID: 2113570154}
-  - component: {fileID: 2113570156}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -986,7 +985,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 9b933c69eddf4425ca42e3a3642276b6, type: 2}
-  playerData: {fileID: 2113570156}
+  - {fileID: 11400000, guid: 38bf7048d5a154dc39b0e5d86b08d754, type: 2}
+  - {fileID: 11400000, guid: 0e31acbed80044e76b4fda30c0a73c71, type: 2}
+  generator: {fileID: 538024347}
+  inputTimeout: 0.25
 --- !u!4 &2113570155
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,18 +1004,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2113570156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113570153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047469d12a22949a987c706dfb46f20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 9
-  y: 7
-  foodLevel: 0

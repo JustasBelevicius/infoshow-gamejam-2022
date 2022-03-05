@@ -5,23 +5,19 @@ using UnityEngine;
 public abstract class Action : ScriptableObject
 {
     [SerializeField]
-    private float inputTimeout = .3f;
-    private float timer = 0;
+    protected string debugName;
 
-    public void OnUpdate(PlayerManager controller)
+    public bool OnUpdate(PlayerManager controller, RoomGenerator roomGenerator, PlayerData player)
     {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            return;
-        }
-        if (CheckInput(controller))
+        if (CheckInput(controller, roomGenerator, player))
         {
             DoAction(controller);
-            timer = inputTimeout;
+            Debug.Log($"Performing Action [{debugName}]");
+            return true;
         }
+        return false;
     }
 
-    protected abstract bool CheckInput(PlayerManager controller);
+    protected abstract bool CheckInput(PlayerManager controller, RoomGenerator roomGenerator, PlayerData player);
     protected abstract void DoAction(PlayerManager controller);
 }
