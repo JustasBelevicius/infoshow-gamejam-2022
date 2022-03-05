@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1faeaa67299d742aebf7b595dd055531, type: 3}
   m_Name: PullAction
   m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 27ae683d4b6d94e119c6dc20764be9c2, type: 3}
+  audio: {fileID: 8300000, guid: 7abbf60e0659e401e831b3e6ab3a35d0, type: 3}
   debugName: PULL
   allowedTargetTiles: 04000000
   allowedCurrentTiles: 00000000
