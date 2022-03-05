@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayVersion : MonoBehaviour
+public class DisplayConfig : MonoBehaviour
 {
     [SerializeField]
     Text text;
@@ -15,7 +15,8 @@ public class DisplayVersion : MonoBehaviour
             Debug.LogError("`text` parameter is not assigned");
             return;
         }
-        text.text = ConfigLoader.getConfig().version;
+        Config config = ConfigLoader.getConfig();
+        text.text = $"version: {config.version}\nstarting food: {config.startingFood}\naction cost: {config.actionCost}\nmax food: {config.maxFood}";
     }
 
 }
