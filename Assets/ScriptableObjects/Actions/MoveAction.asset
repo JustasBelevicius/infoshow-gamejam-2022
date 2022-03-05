@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0753172269fc940e684be77ad131806d, type: 3}
   m_Name: MoveAction
   m_EditorClassIdentifier: 
-  inputTimeout: 0.3
+  audio: {fileID: 8300000, guid: 9c2cf26286bf24aab9cd5448cdb77037, type: 3}
   debugName: MOVE
-  toTile: 00000000
-  fromTile: 0000000002000000
-  moveSpeed: 1
+  allowedTargetTiles: 00000000
+  allowedCurrentTiles: 0000000002000000
+  actionDistance: 1

@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0753172269fc940e684be77ad131806d, type: 3}
-  m_Name: SwimAction
+  m_Script: {fileID: 11500000, guid: baf3a4282b2b0452a854d55a3b1b051f, type: 3}
+  m_Name: PushAction
   m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 210b2f79507194725a521677e0d2da38, type: 3}
-  debugName: SWIM
-  allowedTargetTiles: 02000000
+  audio: {fileID: 8300000, guid: c48761876eefa46bca6a22ea42e34844, type: 3}
+  debugName: PUSH
+  allowedTargetTiles: 04000000
   allowedCurrentTiles: 0000000002000000
   actionDistance: 1
+  allowedDestinationTiles: 020000000300000000000000

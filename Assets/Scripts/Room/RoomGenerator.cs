@@ -26,17 +26,19 @@ public class RoomGenerator: MonoBehaviour
     void Update()
     {
         AddMoreRoomsIfNeccessary();
+        DrawRelevantRooms();
     }
 
     private void AddMoreRoomsIfNeccessary()
     {
         var playerRoom = playerController.GetCurrentRoomPosition();
-        AddRoom(playerRoom[0], playerRoom[1]);
-        AddRoom(playerRoom[0] + 1, playerRoom[1]);
-        AddRoom(playerRoom[0] - 1, playerRoom[1]);
-        AddRoom(playerRoom[0], playerRoom[1] + 1);
-        AddRoom(playerRoom[0], playerRoom[1] - 1);
-        tileMap.RefreshAllTiles();
+        for (int y = -1; y <= 1; y++)
+        {
+            for (int x = -1; x <= 1; x++)
+            {
+                AddRoom(playerRoom[0] + x, playerRoom[1] + y);
+            }
+        }
     }
 
     private void AddRoom(int x, int y)
@@ -44,7 +46,6 @@ public class RoomGenerator: MonoBehaviour
         if (HasRoom(x, y))
             return;
         _map.Add($"{x}_{y}", _roomLoader.GetRandomRoom());
-        DrawRoom(x, y);
     }
 
     private bool HasRoom(int x, int y)
@@ -86,5 +87,19 @@ public class RoomGenerator: MonoBehaviour
             return null;
         }
         return value.tileBase;
+    }
+
+    private void DrawRelevantRooms()
+    {
+        tileMap.ClearAllTiles();
+        var playerRoom = playerController.GetCurrentRoomPosition();
+        for(int y = -1; y <= 1; y++)
+        {
+            for (int x = -1; x <= 1; x++)
+            {
+                DrawRoom(playerRoom[0] + x, playerRoom[1] + y);
+            }
+        }
+        tileMap.RefreshAllTiles();
     }
 }

@@ -1,6 +1,8 @@
-﻿{
+{
     "version": "0.0.1",
     "actionCost": 0.5,
     "startingFood": 5,
-    "maxFood": 10
+    "maxFood": 10,
+    "foodRestore": 4,
+    "foodItemsPerRoom": 4
 }

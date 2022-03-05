@@ -16,7 +16,7 @@ public class DisplayConfig : MonoBehaviour
             return;
         }
         Config config = ConfigLoader.getConfig();
-        text.text = $"version: {config.version}\nstarting food: {config.startingFood}\naction cost: {config.actionCost}\nmax food: {config.maxFood}";
+        text.text = config.ToString();
     }
 
 }

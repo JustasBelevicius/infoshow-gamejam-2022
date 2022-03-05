@@ -13,8 +13,7 @@ public class PlayerManager : MonoBehaviour
     public RoomGenerator generator;
 
     [SerializeField]
-    private float inputTimeout = .3f;
-    private float timer = 0;
+    public AudioSource source;
 
     void Awake()
     {
@@ -26,24 +25,14 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if (timer > 0)
+        foreach (Action action in actions)
         {
-            timer -= Time.deltaTime;
-        }
-        else
-        {
-            foreach (Action action in actions)
+            if (action.OnUpdate(this, generator, playerData))
             {
-                if (timer > 0)
-                {
-                    break;
-                }
-                if (action.OnUpdate(this, generator, playerData))
-                {
-                    timer = inputTimeout;
-                }
+                break;
             }
         }
+
         UpdatePosition();
     }
 
@@ -60,7 +49,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerData GetNextPlayerPosition(Direction direction, int ammount)
     {
         PlayerData player = playerData.Clone();
-        switch(direction)
+        switch (direction)
         {
             case Direction.UP:
                 player.y += ammount;
@@ -81,5 +70,11 @@ public class PlayerManager : MonoBehaviour
     public int[] GetCurrentRoomPosition()
     {
         return playerData.GetCurrentRoomPosition();
+    }
+
+    public void PlayAudio(AudioClip audioClip)
+    {
+        source.pitch = Random.Range(0.9f, 1.1f);
+        source.PlayOneShot(audioClip);
     }
 }

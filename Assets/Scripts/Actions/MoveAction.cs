@@ -1,63 +1,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "MoveAction", menuName = "Actions/MoveAction", order = 1)]
 public class MoveAction : Action
 {
-    [SerializeField]
-    List<TileType> toTile;
-
-    [SerializeField]
-    List<TileType> fromTile;
-
-    [SerializeField]
-    int moveSpeed;
 
     protected override bool CheckInput(PlayerManager controller, RoomGenerator roomGenerator, PlayerData player)
     {
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        if (vertical == 0 && horizontal == 0)
-            return false;
-        return ValidateMove(controller, roomGenerator, player);
-
-    }
-
-    private bool ValidateMove(PlayerManager controller, RoomGenerator roomGenerator, PlayerData player)
-    {
-        var fromRoomPosition = player.GetCurrentRoomPosition();
-        var fromRoom = roomGenerator.GetRoom(fromRoomPosition[0], fromRoomPosition[1]);
-        var playerData = controller.GetNextPlayerPosition(GetDirection(controller), moveSpeed);
-        var toRoomPosition = playerData.GetCurrentRoomPosition();
-        var toRoom = roomGenerator.GetRoom(toRoomPosition[0], toRoomPosition[1]);
-        return fromTile.Contains(fromRoom.GetTiles()[Mod(player.x - 1, Room.WIDTH), Mod(player.y - 1, Room.HEIGHT)])
-            && toTile.Contains(toRoom.GetTiles()[Mod(playerData.x - 1, Room.WIDTH), Mod(playerData.y - 1, Room.HEIGHT)]);
-    }
-
-    private int Mod(int a, int n)
-    {
-        var pos = a % n;
-        return (n + a % n) % n;
+        return ValidateTiles(controller, roomGenerator, player);
     }
 
     protected override void DoAction(PlayerManager controller)
     {
-        controller.Move(GetDirection(controller), moveSpeed);
+        controller.Move(GetDirection(controller), actionDistance);
+        controller.PlayAudio(audio);
     }
-    private Direction GetDirection(PlayerManager controller)
+    protected override Direction GetDirection(PlayerManager controller)
     {
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        if (Mathf.Abs(vertical) > Mathf.Abs(horizontal))
+        if (Input.GetKeyUp(KeyCode.W))
         {
-            // Move vertically
-            return vertical < 0 ? Direction.DOWN : Direction.UP;
-        } else
-        {
-            // Move horizontally
-            return horizontal < 0 ? Direction.LEFT : Direction.RIGHT;
+            return Direction.UP;
         }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            return Direction.LEFT;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            return Direction.DOWN;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            return Direction.RIGHT;
+        }
+        return Direction.NONE;
     }
-
 }

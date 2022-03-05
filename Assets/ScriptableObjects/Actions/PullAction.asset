@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0753172269fc940e684be77ad131806d, type: 3}
-  m_Name: JumpAction
+  m_Script: {fileID: 11500000, guid: 1faeaa67299d742aebf7b595dd055531, type: 3}
+  m_Name: PullAction
   m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 93de83a0e8d9346dfbdfd59eeff9b709, type: 3}
-  debugName: JUMP
-  allowedTargetTiles: 00000000
+  audio: {fileID: 8300000, guid: 27ae683d4b6d94e119c6dc20764be9c2, type: 3}
+  debugName: PULL
+  allowedTargetTiles: 04000000
   allowedCurrentTiles: 00000000
-  actionDistance: 2
+  actionDistance: 3
+  allowedIntermediateTiles: 000000000200000003000000
