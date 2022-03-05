@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   tileType: 2
-  tileBase: {fileID: 11400000, guid: f1bf22f35c526485c83d95bd9bcebc99, type: 2}
+  tileBase: {fileID: 11400000, guid: 6ee0338cba39c4fe88494d69186dbd28, type: 2}

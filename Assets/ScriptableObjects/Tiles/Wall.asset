@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   tileType: 1
-  tileBase: {fileID: 11400000, guid: d3ffff781a56e433abb64a135965a6db, type: 2}
+  tileBase: {fileID: 11400000, guid: 2c8d56f2a0b144637bac6fea2fa32a4e, type: 2}

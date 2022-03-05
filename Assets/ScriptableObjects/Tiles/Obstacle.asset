@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Obstacle
   m_EditorClassIdentifier: 
   tileType: 4
-  tileBase: {fileID: 11400000, guid: c72de4dae58eb49b0a4616a40dbf7596, type: 2}
+  tileBase: {fileID: 11400000, guid: 43284767f935e487da0d850a2048efc8, type: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pit
   m_EditorClassIdentifier: 
   tileType: 3
-  tileBase: {fileID: 11400000, guid: 87d271542dac946f0b277a43a68361c6, type: 2}
+  tileBase: {fileID: 11400000, guid: 1460b43503c4b4f4bb090c94398e0150, type: 2}
