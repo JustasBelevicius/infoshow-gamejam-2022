@@ -8,25 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
         with:
           lfs: true
       # Get Current Data
-      - name: Get current date
+      - name: Get Current Date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      # # Create Release
-      # - name: Create Release
-      #   uses: actions/create-release@v1
-      #   id: create_release
-      #   with:
-      #     draft: false
-      #     prerelease: false
-      #     release_name: build-${{ steps.date.outputs.date }}
-      #     tag_name: ${{ github.ref }}
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
       # Cache
       - uses: actions/cache@v2
         with:
@@ -35,7 +24,7 @@ jobs:
           restore-keys: |
             Library-
       # Build
-      - name: Build project
+      - name: Build Project
         uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -44,16 +33,18 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
       # Upload Artifact
-      - uses: actions/upload-artifact@v2
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
-          name: Build
+          name: StandaloneWindows64
           path: Build
-      - name: Zip build
+      # Zip Build
+      - name: Zip Build
         run: |
           pushd Build/StandaloneWindows64
           zip -r ../../StandaloneWindows64.zip .
           popd
-      - name: Release
+      - name: Upload Release
         uses: softprops/action-gh-release@v1
         with:
           files: StandaloneWindows64.zip
