@@ -37,15 +37,15 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: StandaloneWindows64
-          path: Build
+          path: build
       # Zip Build
       - name: Zip Build
         run: |
-          pushd ../../Build/StandaloneWindows64
+          pushd ../../build/StandaloneWindows64
           zip -r ../../StandaloneWindows64.zip .
           popd
       - name: Upload Release
         uses: softprops/action-gh-release@v1
         with:
-          files: Build/StandaloneWindows64
+          files: ../../StandaloneWindows64.zip
           name: build-${{ steps.date.outputs.date }}
