@@ -12,6 +12,21 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
+      # Get Current Data
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      # # Create Release
+      # - name: Create Release
+      #   uses: actions/create-release@v1
+      #   id: create_release
+      #   with:
+      #     draft: false
+      #     prerelease: false
+      #     release_name: build-${{ steps.date.outputs.date }}
+      #     tag_name: ${{ github.ref }}
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
       # Cache
       - uses: actions/cache@v2
         with:
@@ -28,8 +43,18 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
-      # Output
+      # Upload Artifact
       - uses: actions/upload-artifact@v2
         with:
           name: Build
           path: Build
+      - name: Zip build
+        run: |
+          pushd Build/StandaloneWindows64
+          zip -r ../../StandaloneWindows64.zip .
+          popd
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: StandaloneWindows64.zip
+          name: build-${{ steps.date.outputs.date }}
