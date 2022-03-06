@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Action : ScriptableObject
 {
@@ -9,6 +10,9 @@ public abstract class Action : ScriptableObject
 
     [SerializeField]
     protected string debugName;
+
+    [SerializeField]
+    public int id;
 
     [SerializeField]
     protected List<TileType> allowedTargetTiles;
@@ -28,7 +32,6 @@ public abstract class Action : ScriptableObject
         if (CheckInput(controller, roomGenerator, player))
         {
             DoAction(controller);
-            Debug.Log($"Performing Action [{debugName}]");
             return true;
         }
         return false;
@@ -48,12 +51,7 @@ public abstract class Action : ScriptableObject
         var playerData = controller.GetNextPlayerPosition(GetDirection(controller), distance);
         var roomPosition = playerData.GetCurrentRoomPosition();
         var room = roomGenerator.GetRoom(roomPosition[0], roomPosition[1]);
-        return allowedTiles.Contains(room.GetTiles()[Mod(playerData.x - 1, Room.WIDTH), Mod(playerData.y - 1, Room.HEIGHT)]);
-    }
-
-    private int Mod(int a, int n)
-    {
-        var pos = a % n;
-        return (n + a % n) % n;
+        var playerPosition = playerData.GetPlayerPositionInRoom();
+        return allowedTiles.Contains(room.GetTiles()[playerPosition.x, playerPosition.y]);
     }
 }

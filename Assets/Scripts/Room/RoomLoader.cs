@@ -57,6 +57,6 @@ public class RoomLoader
     public Room GetRandomRoom()
     {
         int roomId = UnityEngine.Random.Range(0, _rooms.Count);
-        return _rooms[roomId];
+        return _rooms[roomId].Clone();
     }
 }

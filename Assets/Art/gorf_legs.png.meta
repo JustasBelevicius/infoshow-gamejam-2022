@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 49671e861310546d3b822749561d6ead
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -462881681497155011
+    second: gorf_legs_0
+  - first:
+      213: -135912248846861257
+    second: gorf_legs_3
+  - first:
+      213: 4808148613551052815
+    second: gorf_legs_9
+  - first:
+      213: 6628158178684522236
+    second: gorf_legs_15
+  - first:
+      213: -8602969109142915138
+    second: gorf_legs_16
+  - first:
+      213: 443161968983823592
+    second: gorf_legs_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +59,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -68,7 +86,7 @@ TextureImporter:
     maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,7 +98,7 @@ TextureImporter:
     maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +110,7 @@ TextureImporter:
     maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +119,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: gorf_legs_0
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 449
+        width: 112
+        height: 384
+      alignment: 9
+      pivot: {x: 0.3049157, y: 0.95519656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a935920938399f0800000000000000
+      internalID: -462881681497155011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorf_legs_3
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 450
+        width: 148
+        height: 367
+      alignment: 9
+      pivot: {x: 0.09928647, y: 0.94651425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73cbbde97842d1ef0800000000000000
+      internalID: -135912248846861257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorf_legs_9
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 491
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f085ff970b9f9b240800000000000000
+      internalID: 4808148613551052815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorf_legs_15
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 61
+        width: 207
+        height: 269
+      alignment: 9
+      pivot: {x: 0.251197, y: 0.17510116}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe479bfeb2fbfb50800000000000000
+      internalID: 6628158178684522236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorf_legs_16
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 153
+        height: 348
+      alignment: 9
+      pivot: {x: 0.38779444, y: 0.90362257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7b0ebfc2d1c9880800000000000000
+      internalID: -8602969109142915138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorf_legs_20
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 41
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e45e3b767d662600800000000000000
+      internalID: 443161968983823592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: c48761876eefa46bca6a22ea42e34844, type: 3}
   debugName: PUSH
+  id: 3
   allowedTargetTiles: 04000000
   allowedCurrentTiles: 0000000002000000
   actionDistance: 1

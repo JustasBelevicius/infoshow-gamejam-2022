@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 8300000, guid: 210b2f79507194725a521677e0d2da38, type: 3}
   debugName: SWIM
+  id: 1
   allowedTargetTiles: 02000000
   allowedCurrentTiles: 0000000002000000
   actionDistance: 1
